@@ -25,12 +25,12 @@
         .wrapper {
             max-width: 880px;
             width: 100%;
-            background: rgba(255, 252, 248, 0.85);
+            background: rgba(255, 252, 248, 0.88);
             backdrop-filter: blur(4px);
             border-radius: 56px 56px 40px 40px;
             padding: 30px 25px 20px;
             box-shadow: 0 20px 60px rgba(60, 80, 50, 0.15);
-            border: 1px solid rgba(180, 200, 160, 0.3);
+            border: 1px solid rgba(180, 200, 160, 0.25);
             position: relative;
             overflow: hidden;
         }
@@ -43,80 +43,109 @@
             right: 0;
             font-size: 6em;
             letter-spacing: 30px;
-            color: rgba(80, 110, 70, 0.06);
+            color: rgba(80, 110, 70, 0.05);
             white-space: nowrap;
             pointer-events: none;
             transform: rotate(-2deg);
             z-index: 0;
         }
 
-        .wrapper::after {
-            content: "🍃🌿🍃🌿🍃";
-            position: absolute;
-            bottom: 10px;
-            right: -10px;
-            font-size: 4em;
-            color: rgba(100, 130, 80, 0.05);
-            pointer-events: none;
-            transform: rotate(5deg);
-            z-index: 0;
-        }
-
+        /* ===== ШАПКА — СКАЗОЧНЫЙ ЛЕС ===== */
         header {
-            text-align: center;
-            padding: 30px 10px 20px;
             position: relative;
             z-index: 1;
+            border-radius: 40px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            box-shadow: 0 8px 40px rgba(60, 80, 50, 0.12);
         }
 
-        .leaf-frame {
+        .hero-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.5) saturate(0.8) contrast(0.9);
+            transition: 0.4s;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(30, 50, 30, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+            backdrop-filter: blur(1px);
+        }
+
+        .hero-leaf-top {
             font-size: 2.2em;
-            letter-spacing: 12px;
-            color: #5a7a4a;
-            opacity: 0.4;
-        }
-
-        header h1 {
-            font-size: 3.4em;
+            letter-spacing: 20px;
+            color: rgba(255, 255, 255, 0.12);
+            margin-bottom: 6px;
             font-weight: normal;
-            color: #2a452a;
-            letter-spacing: 6px;
-            margin: 6px 0 2px;
-            font-family: 'Georgia', serif;
-            text-shadow: 0 2px 12px rgba(60, 90, 50, 0.08);
         }
 
-        header h1 span {
-            font-size: 0.85em;
-            color: #4a6a3a;
+        .hero-leaf-bottom {
+            font-size: 2em;
+            letter-spacing: 18px;
+            color: rgba(255, 255, 255, 0.1);
+            margin-top: 8px;
+            font-weight: normal;
         }
 
-        header .sub {
-            font-size: 1.15em;
-            color: #5a7050;
-            font-style: italic;
-            letter-spacing: 2px;
-            border-top: 1px solid rgba(140, 170, 120, 0.2);
-            border-bottom: 1px solid rgba(140, 170, 120, 0.2);
-            display: inline-block;
-            padding: 6px 24px;
-            margin-top: 6px;
+        .hero-names {
+            font-size: 4.4em;
+            font-weight: normal;
+            letter-spacing: 16px;
+            color: #fff;
+            text-shadow: 0 4px 50px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin: 0;
+            line-height: 1.2;
         }
 
-        .date-badge {
-            display: inline-block;
-            margin-top: 14px;
-            padding: 10px 38px;
-            background: rgba(240, 248, 235, 0.7);
-            backdrop-filter: blur(2px);
-            border-radius: 60px;
+        .hero-names span {
+            font-size: 0.75em;
+            color: #f0f7ea;
+            letter-spacing: 8px;
+        }
+
+        .hero-line {
+            width: 140px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            margin: 8px auto;
+        }
+
+        .hero-sub {
             font-size: 1.2em;
-            color: #2a452a;
-            border: 1px solid rgba(130, 170, 110, 0.25);
-            box-shadow: 0 4px 20px rgba(80, 120, 60, 0.06);
-            letter-spacing: 1px;
+            font-style: italic;
+            letter-spacing: 6px;
+            color: #f0f7ea;
+            text-shadow: 0 2px 25px rgba(0, 0, 0, 0.4);
+            margin-top: 2px;
         }
 
+        .hero-date {
+            margin-top: 14px;
+            padding: 8px 38px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            font-size: 1.05em;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+        }
+
+        /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
         .section {
             background: rgba(255, 252, 248, 0.6);
             backdrop-filter: blur(2px);
@@ -127,7 +156,6 @@
             box-shadow: 0 6px 30px rgba(60, 80, 50, 0.04);
             position: relative;
             z-index: 1;
-            transition: 0.2s;
         }
 
         .section h3 {
@@ -180,6 +208,29 @@
             border-radius: 30px;
             font-style: italic;
             border: 1px solid rgba(160, 190, 140, 0.15);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid rgba(180, 200, 165, 0.2);
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+            border-color: #8aaa7a;
+            box-shadow: 0 8px 25px rgba(60, 80, 50, 0.15);
         }
 
         .day-label {
@@ -348,12 +399,16 @@
 
         @media (max-width: 700px) {
             .wrapper { padding: 20px 14px; border-radius: 32px; }
-            header h1 { font-size: 2.4em; letter-spacing: 3px; }
+            .hero-names { font-size: 2.6em; letter-spacing: 8px; }
+            .hero-image { height: 260px; }
+            .hero-leaf-top, .hero-leaf-bottom { font-size: 1.4em; letter-spacing: 12px; }
+            .hero-date { font-size: 0.9em; padding: 6px 20px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid img { height: 140px; }
             .program-item { flex-direction: column; align-items: center; text-align: center; }
             .program-time { min-width: auto; margin-bottom: 2px; }
             .transport-grid { grid-template-columns: 1fr; }
             .faq-a { padding-left: 0; }
-            .date-badge { font-size: 1em; padding: 8px 24px; }
             .section { padding: 20px 16px; }
             .invite-text { font-size: 1.05em; }
         }
@@ -363,11 +418,21 @@
 
 <div class="wrapper">
 
+    <!-- ===== ШАПКА — СКАЗОЧНЫЙ ЛЕС ===== -->
     <header>
-        <div class="leaf-frame">🌿 🍃 🌿</div>
-        <h1>Катя <span>&amp;</span> Максим</h1>
-        <div class="sub">приглашают на свадьбу</div>
-        <div class="date-badge">💍 25–26 июля 2026</div>
+        <img 
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=380&fit=crop" 
+            alt="Лесная сказка" 
+            class="hero-image"
+        />
+        <div class="hero-overlay">
+            <div class="hero-leaf-top">🌿 🍃 🌿</div>
+            <h1 class="hero-names">Катя <span>&amp;</span> Максим</h1>
+            <div class="hero-line"></div>
+            <div class="hero-sub">приглашают на свадьбу</div>
+            <div class="hero-date">💍 25–26 июля 2026</div>
+            <div class="hero-leaf-bottom">🌿 🍃 🌿</div>
+        </div>
     </header>
 
     <!-- ===== ПРИГЛАШЕНИЕ ===== -->
@@ -385,6 +450,23 @@
                 🌿 Дресс-код: праздничный
             </span>
         </div>
+    </div>
+
+    <!-- ===== ГАЛЕРЕЯ ===== -->
+    <div class="section">
+        <h3><span class="leaf">📸</span> Наши моменты <span class="leaf">📸</span></h3>
+        <div class="divider"></div>
+        <div class="gallery-grid">
+            <img src="p1.jpeg" alt="Катя и Максим на велосипедах" />
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop" alt="Фото 2" />
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&h=300&fit=crop" alt="Фото 3" />
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Фото 4" />
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=300&fit=crop" alt="Фото 5" />
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0185a74?w=400&h=300&fit=crop" alt="Фото 6" />
+        </div>
+        <p style="text-align:center; margin-top:12px; font-size:0.85em; color:#7a8a72; opacity:0.7;">
+            🌿 Замените остальные фото на свои
+        </p>
     </div>
 
     <!-- ===== ПРОГРАММА 1-Й ДЕНЬ ===== -->
@@ -443,7 +525,7 @@
         </div>
     </div>
 
-    <!-- ===== МЕСТО ПРОВЕДЕНИЯ (скрыто) ===== -->
+    <!-- ===== МЕСТО ПРОВЕДЕНИЯ ===== -->
     <div class="section">
         <h3><span class="leaf">🌲</span> Как добраться <span class="leaf">🌲</span></h3>
         <div class="divider"></div>
