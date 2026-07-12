@@ -1,1 +1,1 @@
-Friend's wedding page
+Wedding page for friends
