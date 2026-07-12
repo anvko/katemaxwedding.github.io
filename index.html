@@ -50,7 +50,7 @@
             z-index: 0;
         }
 
-        /* ===== ШАПКА ===== */
+        /* ===== ШАПКА — БЕЗ ЗАТЕМНЕНИЯ ===== */
         header {
             position: relative;
             z-index: 1;
@@ -66,7 +66,7 @@
             object-fit: cover;
             object-position: center;
             display: block;
-            filter: brightness(0.5) saturate(0.85) contrast(0.9);
+            /* УБРАЛИ затемнение */
             transition: 0.4s;
         }
 
@@ -357,6 +357,7 @@
             color: #5a7050;
         }
 
+        /* ===== ФОТО МЕЖДУ БЛОКАМИ ===== */
         .inline-photo {
             width: 100%;
             height: 300px;
@@ -367,6 +368,11 @@
             margin: 12px 0;
             border: 2px solid rgba(180, 200, 165, 0.15);
             box-shadow: 0 4px 20px rgba(60, 80, 50, 0.06);
+        }
+
+        /* ФОТО 1, 3, 4 — сдвигаем вниз, чтобы головы не обрезались */
+        .inline-photo.special {
+            object-position: center 25%;
         }
 
         .faq-item {
@@ -450,7 +456,7 @@
 
 <div class="wrapper">
 
-    <!-- ===== ШАПКА ===== -->
+    <!-- ===== ШАПКА (БЕЗ ЗАТЕМНЕНИЯ) ===== -->
     <header>
         <img 
             src="wedding_main.jpeg" 
@@ -482,8 +488,8 @@
         </div>
     </div>
 
-    <!-- ===== ФОТО 1 ===== -->
-    <img src="photo_1.jpeg" alt="Свадебное фото" class="inline-photo" />
+    <!-- ===== ФОТО 1 (специальное) ===== -->
+    <img src="photo_1.jpeg" alt="Свадебное фото" class="inline-photo special" />
 
     <!-- ===== ПРОГРАММА 1-Й ДЕНЬ ===== -->
     <div class="section">
@@ -498,7 +504,7 @@
         <div class="program-item"><span class="program-time">21:00</span><span class="program-desc">Завершение первого дня</span></div>
     </div>
 
-    <!-- ===== ФОТО 2 ===== -->
+    <!-- ===== ФОТО 2 (обычное) ===== -->
     <img src="photo_2.jpeg" alt="Свадебное настроение" class="inline-photo" />
 
     <!-- ===== ПРОГРАММА 2-Й ДЕНЬ ===== -->
@@ -524,8 +530,8 @@
         </div>
     </div>
 
-    <!-- ===== ФОТО 3 ===== -->
-    <img src="photo_3.jpeg" alt="Лесная сказка" class="inline-photo" />
+    <!-- ===== ФОТО 3 (специальное) ===== -->
+    <img src="photo_3.jpeg" alt="Лесная сказка" class="inline-photo special" />
 
     <!-- ===== МЕСТО ПРОВЕДЕНИЯ ===== -->
     <div class="section">
@@ -550,8 +556,8 @@
         </div>
     </div>
 
-    <!-- ===== ФОТО 4 ===== -->
-    <img src="photo_4.jpeg" alt="Свадебный лес" class="inline-photo" />
+    <!-- ===== ФОТО 4 (специальное) ===== -->
+    <img src="photo_4.jpeg" alt="Свадебный лес" class="inline-photo special" />
 
     <!-- ===== FAQ ===== -->
     <div class="section">
