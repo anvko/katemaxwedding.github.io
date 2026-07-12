@@ -62,8 +62,8 @@
 
         .hero-image {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: auto;
+            aspect-ratio: 16 / 9;
             display: block;
             filter: brightness(0.5) saturate(0.85) contrast(0.9);
             transition: 0.4s;
@@ -100,7 +100,6 @@
             font-weight: normal;
         }
 
-        /* КРАСИВЫЙ ШРИФТ ДЛЯ ИМЁН */
         .hero-names {
             font-family: 'Georgia', 'Times New Roman', serif;
             font-size: 4.6em;
@@ -194,7 +193,6 @@
             opacity: 0.25;
         }
 
-        /* ===== ПРИГЛАШЕНИЕ ===== */
         .invite-text {
             font-size: 1.15em;
             line-height: 1.9;
@@ -217,7 +215,6 @@
             border: 1px solid rgba(160, 190, 140, 0.15);
         }
 
-        /* ===== ПРОГРАММА ===== */
         .day-label {
             background: rgba(200, 220, 185, 0.2);
             padding: 6px 22px;
@@ -267,7 +264,6 @@
             text-align: left;
         }
 
-        /* ===== СПИСОК ВЕЩЕЙ ===== */
         .things-list {
             list-style: none;
             padding: 0;
@@ -287,7 +283,6 @@
             border: 1px solid rgba(160, 190, 140, 0.1);
         }
 
-        /* ===== МЕСТО ПРОВЕДЕНИЯ ===== */
         .place-info {
             background: rgba(240, 248, 235, 0.3);
             border-radius: 24px;
@@ -361,18 +356,18 @@
             color: #5a7050;
         }
 
-        /* ===== ФОТО МЕЖДУ БЛОКАМИ ===== */
+        /* ===== ФОТО МЕЖДУ БЛОКАМИ — БЕЗ ОБРЕЗАНИЯ ===== */
         .inline-photo {
             width: 100%;
-            max-height: 300px;
-            object-fit: cover;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            display: block;
             border-radius: 28px;
             margin: 12px 0;
             border: 2px solid rgba(180, 200, 165, 0.15);
             box-shadow: 0 4px 20px rgba(60, 80, 50, 0.06);
         }
 
-        /* ===== FAQ ===== */
         .faq-item {
             padding: 14px 0;
             border-bottom: 1px solid rgba(180, 200, 165, 0.12);
@@ -434,7 +429,7 @@
         @media (max-width: 700px) {
             .wrapper { padding: 20px 14px; border-radius: 32px; }
             .hero-names { font-size: 2.6em; letter-spacing: 6px; }
-            .hero-image { height: 280px; }
+            .hero-image { aspect-ratio: 4 / 3; }
             .hero-leaf-top, .hero-leaf-bottom { font-size: 1.4em; letter-spacing: 12px; }
             .hero-date { font-size: 0.9em; padding: 6px 20px; }
             .program-item { flex-direction: column; align-items: center; text-align: center; }
@@ -445,7 +440,7 @@
             .faq-q { flex-wrap: wrap; }
             .section { padding: 20px 16px; }
             .invite-text { font-size: 1.05em; }
-            .inline-photo { max-height: 200px; }
+            .inline-photo { aspect-ratio: 4 / 3; }
             .things-list li { display: block; margin: 4px auto; max-width: 200px; }
         }
     </style>
@@ -454,7 +449,7 @@
 
 <div class="wrapper">
 
-    <!-- ===== ШАПКА С КАРТИНОЙ ===== -->
+    <!-- ===== ШАПКА ===== -->
     <header>
         <img 
             src="https://www.goodfon.ru/painting/wallpaper-kartina-natures-paradise.html" 
@@ -493,30 +488,13 @@
     <div class="section">
         <h3><span class="leaf">🌲</span> Программа первого дня <span class="leaf">🌲</span></h3>
         <div class="divider"></div>
-
         <div class="day-label">📅 25 июля — Основное торжество</div>
         <div class="day-desc">🌿 Начало банкета 15:30 • Окончание 21:00</div>
-
-        <div class="program-item">
-            <span class="program-time">15:30</span>
-            <span class="program-desc">Встреча гостей, welcome-фуршет</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">16:00</span>
-            <span class="program-desc">Торжественная церемония</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">17:00</span>
-            <span class="program-desc">Банкет, музыка, танцы</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">19:00</span>
-            <span class="program-desc">Торт и поздравления</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">21:00</span>
-            <span class="program-desc">Завершение первого дня</span>
-        </div>
+        <div class="program-item"><span class="program-time">15:30</span><span class="program-desc">Встреча гостей, welcome-фуршет</span></div>
+        <div class="program-item"><span class="program-time">16:00</span><span class="program-desc">Торжественная церемония</span></div>
+        <div class="program-item"><span class="program-time">17:00</span><span class="program-desc">Банкет, музыка, танцы</span></div>
+        <div class="program-item"><span class="program-time">19:00</span><span class="program-desc">Торт и поздравления</span></div>
+        <div class="program-item"><span class="program-time">21:00</span><span class="program-desc">Завершение первого дня</span></div>
     </div>
 
     <!-- ===== ФОТО 2 ===== -->
@@ -526,31 +504,13 @@
     <div class="section">
         <h3><span class="leaf">🍃</span> Программа второго дня <span class="leaf">🍃</span></h3>
         <div class="divider"></div>
-
         <div class="day-label">📅 26 июля — Продолжение праздника</div>
         <div class="day-desc">🌿 Уютное неформальное завершение</div>
-
-        <div class="program-item">
-            <span class="program-time">9:00</span>
-            <span class="program-desc">Завтрак</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">10:00</span>
-            <span class="program-desc">Спортивная игра</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">13:00</span>
-            <span class="program-desc">Обед</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">14:00</span>
-            <span class="program-desc">Баня</span>
-        </div>
-        <div class="program-item">
-            <span class="program-time">18:00</span>
-            <span class="program-desc">Ужин</span>
-        </div>
-
+        <div class="program-item"><span class="program-time">9:00</span><span class="program-desc">Завтрак</span></div>
+        <div class="program-item"><span class="program-time">10:00</span><span class="program-desc">Спортивная игра</span></div>
+        <div class="program-item"><span class="program-time">13:00</span><span class="program-desc">Обед</span></div>
+        <div class="program-item"><span class="program-time">14:00</span><span class="program-desc">Баня</span></div>
+        <div class="program-item"><span class="program-time">18:00</span><span class="program-desc">Ужин</span></div>
         <div style="margin-top: 16px; border-top: 1px solid rgba(160, 190, 140, 0.15); padding-top: 14px;">
             <p style="font-size: 0.9em; color: #5a7050; font-weight: bold; margin-bottom: 4px;">Что взять с собой:</p>
             <ul class="things-list">
@@ -559,9 +519,7 @@
                 <li>👕 Удобная одежда на день</li>
                 <li>🧴 Полотенце</li>
             </ul>
-            <p style="font-size: 0.85em; color: #7a8a72; margin-top: 8px; opacity: 0.8;">
-                или просто что-то удобное и комфортное 🌿
-            </p>
+            <p style="font-size: 0.85em; color: #7a8a72; margin-top: 8px; opacity: 0.8;">или просто что-то удобное и комфортное 🌿</p>
         </div>
     </div>
 
@@ -572,15 +530,11 @@
     <div class="section">
         <h3><span class="leaf">🌲</span> Как добраться <span class="leaf">🌲</span></h3>
         <div class="divider"></div>
-
         <div class="place-info">
             <span class="big-icon">🏡</span>
             <div class="address">📍 Живописная усадьба</div>
-            <div class="hint">
-                🌿 Точный адрес указан в <strong>приглашении</strong>
-            </div>
+            <div class="hint">🌿 Точный адрес указан в <strong>приглашении</strong></div>
         </div>
-
         <div class="transport-grid">
             <div class="transport-item">
                 <span class="icon">🚗</span>
@@ -602,27 +556,22 @@
     <div class="section">
         <h3><span class="leaf">🍃</span> Частые вопросы <span class="leaf">🍃</span></h3>
         <div class="divider"></div>
-
         <div class="faq-item">
             <div class="faq-q"><span class="icon">🌿</span> До какого числа подтвердить присутствие?</div>
             <div class="faq-a">Пожалуйста, сообщите нам до 1 июля 2026 — это очень поможет в подготовке.</div>
         </div>
-
         <div class="faq-item">
             <div class="faq-q"><span class="icon">👗</span> Какой дресс-код?</div>
-            <div class="faq-a">Праздничный✨</div>
+            <div class="faq-a">Праздничный ✨</div>
         </div>
-
         <div class="faq-item">
             <div class="faq-q"><span class="icon">🎁</span> Что дарить? Можно ли цветы?</div>
             <div class="faq-a">Спасибо, что думаете о нас! Мы будем очень благодарны за денежный подарок — мы копим на свадебное путешествие, о котором давно мечтаем. А цветы, пожалуйста, не дарите — мы не сможем забрать их с собой, и нам будет жаль, если они завянут ❤️</div>
         </div>
-
         <div class="faq-item">
             <div class="faq-q"><span class="icon">👶</span> Можно ли с детьми?</div>
-            <div class="faq-a">Да, мы будем рады всей семье! Для детей будет отдельное пространство и аниматор.</div>
+            <div class="faq-a">Да, мы будем рады всей семье! </div>
         </div>
-
         <div class="faq-item">
             <div class="faq-q"><span class="icon">🚐</span> Будет ли трансфер?</div>
             <div class="faq-a">Да! Трансфер будет ждать гостей в 14:30 на остановке <strong>«52-я школа»</strong>. Если вы на машине — на территории есть бесплатная парковка.</div>
