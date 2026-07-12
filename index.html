@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадьба Кати и Максима</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #f6f2ec;
+            color: #3d3d3d;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* ===== ШАПКА с лесным акцентом ===== */
+        header {
+            background: linear-gradient(135deg, #e8f0e6, #d6e2d3);
+            padding: 50px 20px 35px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #c5d6bf;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "🌿";
+            font-size: 6em;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+
+        header::after {
+            content: "🌲";
+            font-size: 5em;
+            position: absolute;
+            right: -10px;
+            bottom: -20px;
+            opacity: 0.08;
+            transform: rotate(10deg);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #3a5a3a;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h2 {
+            font-size: 1.2em;
+            font-weight: normal;
+            color: #5a7a5a;
+            margin-top: 5px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        .date-badge {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 35px;
+            background: rgba(255,255,255,0.75);
+            border-radius: 40px;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            color: #3a5a3a;
+            border: 1px solid #bdd0b5;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== ОСНОВНЫЕ БЛОКИ ===== */
+        .section {
+            background: white;
+            padding: 30px 25px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.04);
+            text-align: left;
+            border-left: 4px solid #bdd0b5;
+        }
+
+        .section h3 {
+            font-size: 1.8em;
+            font-weight: normal;
+            color: #3a5a3a;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #bdd0b5;
+            margin: 8px auto 20px;
+        }
+
+        /* ===== ПРОГРАММА ===== */
+        .program-item {
+            display: flex;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e6ede3;
+        }
+
+        .program-item:last-child {
+            border-bottom: none;
+        }
+
+        .program-time {
+            font-weight: bold;
+            color: #3a5a3a;
+            min-width: 100px;
+            font-size: 1.05em;
+        }
+
+        .program-desc {
+            color: #4d4d4d;
+            font-size: 1.05em;
+        }
+
+        .day-label {
+            background: #e8f0e6;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #3a5a3a;
+            display: inline-block;
+            margin: 10px 0 5px;
+            font-size: 0.95em;
+        }
+
+        /* ===== КАК ДОБРАТЬСЯ ===== */
+        .place-info {
+            background: #f5f8f3;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 10px;
+            text-align: center;
+            border: 1px solid #dde8d8;
+        }
+
+        .place-info p {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .place-info .address {
+            font-size: 1.2em;
+            color: #3a5a3a;
+            font-weight: bold;
+        }
+
+        .transport-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .transport-item {
+            background: white;
+            padding: 15px 10px;
+            border-radius: 12px;
+            border: 1px solid #dde8d8;
+            text-align: center;
+        }
+
+        .transport-item .icon {
+            font-size: 1.8em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .transport-item .label {
+            font-weight: bold;
+            font-size: 0.95em;
+            color: #3a5a3a;
+        }
+
+        .transport-item .desc {
+            font-size: 0.9em;
+            color: #6e7a6a;
+        }
+
+        /* ===== ВОПРОСЫ-ОТВЕТЫ ===== */
+        .faq-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e6ede3;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: bold;
+            color: #3a5a3a;
+            font-size: 1.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-q::before {
+            content: "🌿";
+            font-size: 1.1em;
+        }
+
+        .faq-a {
+            color: #4d4d4d;
+            margin-top: 4px;
+            padding-left: 30px;
+        }
+
+        .faq-a::before {
+            content: "→ ";
+            color: #8aaa80;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 25px;
+            color: #8aaa80;
+            font-size: 0.95em;
+            border-top: 1px solid #dde8d8;
+        }
+
+        .leaf-icon {
+            display: inline-block;
+            font-size: 1.2em;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 2.2em; }
+            .program-item { flex-direction: column; align-items: center; text-align: center; }
+            .program-time { min-width: auto; margin-bottom: 2px; }
+            .transport-grid { grid-template-columns: 1fr; }
+            .faq-a { padding-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Катя &amp; Максим</h1>
+        <h2>🌲 Приглашаем в лесную сказку 🌲</h2>
+        <div class="date-badge">💍 25 июля 2026</div>
+    </header>
+
+    <!-- ===== ПРИГЛАШЕНИЕ ===== -->
+    <div class="section">
+        <h3>Дорогие гости!</h3>
+        <div class="divider"></div>
+        <p style="font-size: 1.15em; line-height: 1.8; color: #3d3d3d; text-align: center; max-width: 700px; margin: 0 auto;">
+            <span class="leaf-icon">🌿</span>
+            25 июля 2026 года Максим и Екатерина приглашают вас на свою свадьбу 
+            в усадьбе <strong>«tbd»</strong> (tbd).
+            <br><br>
+            Начало банкета: <strong>15:30</strong>
+            <br><br>
+            <span style="display: inline-block; background: #e8f0e6; padding: 10px 25px; border-radius: 40px; font-size: 0.9em;">
+                🌿 Дресс-код: праздничный
+            </span>
+            <br><br>
+            <span style="color: #5a7a5a; font-style: italic;">
+                «Свадьба в стиле лесной уютной сказки — солнечный летний лес»
+            </span>
+            <span class="leaf-icon">🌿</span>
+        </p>
+    </div>
+
+    <!-- ===== ПРОГРАММА ===== -->
+    <div class="section">
+        <h3>Программа дня</h3>
+        <div class="divider"></div>
+
+        <div class="day-label">🌲 25 июля 2026</div>
+
+        <div class="program-item">
+            <span class="program-time">15:30</span>
+            <span class="program-desc">Начало банкета, встреча гостей</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">16:00</span>
+            <span class="program-desc">Торжественная церемония</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">17:00</span>
+            <span class="program-desc">Праздничный ужин и развлекательная программа</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">19:00</span>
+            <span class="program-desc">Торт и поздравления</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">21:00</span>
+            <span class="program-desc">Завершение вечера, прощание с гостями</span>
+        </div>
+    </div>
+
+    <!-- ===== КАК ДОБРАТЬСЯ ===== -->
+    <div class="section">
+        <h3>Как добраться</h3>
+        <div class="divider"></div>
+
+        <div class="place-info">
+            <p class="address">🌲 Усадьба tbd </p>
+            <p> tbd </p>
+            <p style="font-size:0.9em; color:#6e7a6a; margin-top:5px;">
+                <a href="#" style="color:#6e8a6a; text-decoration:underline;">Открыть карту</a>
+            </p>
+        </div>
+
+        <div class="transport-grid">
+            <div class="transport-item">
+                <span class="icon">🚗</span>
+                <div class="label">На машине</div>
+                <div class="desc">Есть парковка для гостей</div>
+            </div>
+            <div class="transport-item">
+                <span class="icon">🚕</span>
+                <div class="label">Такси</div>
+                <div class="desc">Лучше заказать заранее</div>
+            </div>
+            <div class="transport-item">
+                <span class="icon">🚌</span>
+                <div class="label">Маршрутка</div>
+                <div class="desc">От остановки 10 мин пешком</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ВОПРОСЫ-ОТВЕТЫ ===== -->
+    <div class="section">
+        <h3>Частые вопросы</h3>
+        <div class="divider"></div>
+
+        <div class="faq-item">
+            <div class="faq-q">До какого числа нужно подтвердить присутствие?</div>
+            <div class="faq-a">Пожалуйста, сообщите нам до 1 июля 2026 — это очень поможет в подготовке.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Какой дресс-код?</div>
+            <div class="faq-a">Праздничный стиль</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Что дарить? Можно ли цветы?</div>
+            <div class="faq-a">Спасибо, что думаете о нас! Мы будем очень благодарны за денежный подарок — мы копим на свадебное путешествие, о котором давно мечтаем. А цветы, пожалуйста, не дарите — мы не сможем забрать их с собой, и нам будет жаль, если они завянут ❤️</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Можно ли с детьми?</div>
+            <div class="faq-a">Да, мы будем рады видеть всю семью! Детям будет комфортно, и для них предусмотрено отдельное пространство.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Будет ли трансфер для гостей?</div>
+            <div class="faq-a">К сожалению, мы не организуем трансфер, но до усадьбы легко добраться на такси или личном автомобиле.</div>
+        </div>
+    </div>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer>
+        🌿 С любовью, Катя и Максим 🌿
+    </footer>
+
+</body>
+</html>
