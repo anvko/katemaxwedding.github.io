@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Свадьба Кати и Максима</title>
+    <title>Свадьба Екатерины и Максима</title>
     <style>
         * {
             margin: 0;
@@ -50,7 +50,7 @@
             z-index: 0;
         }
 
-        /* ===== ШАПКА — СКАЗОЧНЫЙ ЛЕС ===== */
+        /* ===== ШАПКА ===== */
         header {
             position: relative;
             z-index: 1;
@@ -62,10 +62,10 @@
 
         .hero-image {
             width: 100%;
-            height: 380px;
+            height: 400px;
             object-fit: cover;
             display: block;
-            filter: brightness(0.5) saturate(0.8) contrast(0.9);
+            filter: brightness(0.45) saturate(0.75) contrast(0.85);
             transition: 0.4s;
         }
 
@@ -80,7 +80,7 @@
             justify-content: center;
             align-items: center;
             padding: 30px;
-            background: linear-gradient(135deg, rgba(30, 50, 30, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(30, 50, 30, 0.15) 0%, rgba(0, 0, 0, 0.1) 100%);
             backdrop-filter: blur(1px);
         }
 
@@ -100,20 +100,24 @@
             font-weight: normal;
         }
 
+        /* КРАСИВЫЙ ШРИФТ ДЛЯ ИМЁН */
         .hero-names {
-            font-size: 4.4em;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 4.6em;
             font-weight: normal;
-            letter-spacing: 16px;
+            letter-spacing: 12px;
             color: #fff;
-            text-shadow: 0 4px 50px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 4px 60px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.2);
             margin: 0;
-            line-height: 1.2;
+            line-height: 1.15;
+            font-style: italic;
         }
 
-        .hero-names span {
-            font-size: 0.75em;
-            color: #f0f7ea;
+        .hero-names .amp {
+            font-size: 0.6em;
+            color: #e8f0e0;
             letter-spacing: 8px;
+            font-style: normal;
         }
 
         .hero-line {
@@ -130,6 +134,7 @@
             color: #f0f7ea;
             text-shadow: 0 2px 25px rgba(0, 0, 0, 0.4);
             margin-top: 2px;
+            font-weight: 300;
         }
 
         .hero-date {
@@ -145,7 +150,7 @@
             letter-spacing: 2px;
         }
 
-        /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
+        /* ===== СЕКЦИИ — ВСЁ ПО ЦЕНТРУ ===== */
         .section {
             background: rgba(255, 252, 248, 0.6);
             backdrop-filter: blur(2px);
@@ -156,6 +161,7 @@
             box-shadow: 0 6px 30px rgba(60, 80, 50, 0.04);
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
         .section h3 {
@@ -188,6 +194,7 @@
             opacity: 0.25;
         }
 
+        /* ===== ПРИГЛАШЕНИЕ ===== */
         .invite-text {
             font-size: 1.15em;
             line-height: 1.9;
@@ -210,37 +217,15 @@
             border: 1px solid rgba(160, 190, 140, 0.15);
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-top: 10px;
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 20px;
-            border: 2px solid rgba(180, 200, 165, 0.2);
-            transition: 0.3s ease;
-            cursor: pointer;
-        }
-
-        .gallery-grid img:hover {
-            transform: scale(1.02);
-            border-color: #8aaa7a;
-            box-shadow: 0 8px 25px rgba(60, 80, 50, 0.15);
-        }
-
+        /* ===== ПРОГРАММА ===== */
         .day-label {
             background: rgba(200, 220, 185, 0.2);
-            padding: 4px 18px;
+            padding: 6px 22px;
             border-radius: 30px;
             font-weight: bold;
             color: #2a452a;
             display: inline-block;
-            margin: 12px 0 4px;
+            margin: 12px auto 4px;
             font-size: 0.95em;
             border: 1px solid rgba(160, 190, 140, 0.1);
         }
@@ -255,9 +240,12 @@
 
         .program-item {
             display: flex;
+            justify-content: center;
             align-items: baseline;
-            padding: 10px 0;
-            border-bottom: 1px dashed rgba(160, 190, 140, 0.2);
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(160, 190, 140, 0.15);
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .program-item:last-child {
@@ -267,21 +255,47 @@
         .program-time {
             font-weight: bold;
             color: #2a452a;
-            min-width: 100px;
+            min-width: 80px;
             font-size: 1.05em;
+            text-align: right;
+            margin-right: 20px;
         }
 
         .program-desc {
             color: #3d4d3a;
             font-size: 1.05em;
+            text-align: left;
         }
 
+        /* ===== СПИСОК ВЕЩЕЙ ===== */
+        .things-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px auto 0;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .things-list li {
+            display: inline-block;
+            background: rgba(200, 220, 185, 0.12);
+            padding: 4px 16px;
+            border-radius: 30px;
+            margin: 4px 6px;
+            font-size: 0.95em;
+            color: #2d3a2a;
+            border: 1px solid rgba(160, 190, 140, 0.1);
+        }
+
+        /* ===== МЕСТО ПРОВЕДЕНИЯ ===== */
         .place-info {
             background: rgba(240, 248, 235, 0.3);
             border-radius: 24px;
-            padding: 28px 20px;
+            padding: 24px 20px;
             text-align: center;
             border: 1px dashed rgba(130, 170, 110, 0.2);
+            max-width: 650px;
+            margin: 0 auto;
         }
 
         .place-info .big-icon {
@@ -312,16 +326,19 @@
         }
 
         .transport-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 14px;
             margin-top: 18px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .transport-item {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(2px);
-            padding: 16px 10px;
+            padding: 16px 20px;
             border-radius: 20px;
             border: 1px solid rgba(180, 200, 165, 0.15);
             text-align: center;
@@ -344,9 +361,24 @@
             color: #5a7050;
         }
 
+        /* ===== ФОТО МЕЖДУ БЛОКАМИ ===== */
+        .inline-photo {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 28px;
+            margin: 12px 0;
+            border: 2px solid rgba(180, 200, 165, 0.15);
+            box-shadow: 0 4px 20px rgba(60, 80, 50, 0.06);
+        }
+
+        /* ===== FAQ ===== */
         .faq-item {
-            padding: 16px 0;
+            padding: 14px 0;
             border-bottom: 1px solid rgba(180, 200, 165, 0.12);
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
         }
 
         .faq-item:last-child {
@@ -360,6 +392,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            justify-content: center;
         }
 
         .faq-q .icon {
@@ -372,6 +405,7 @@
             margin-top: 4px;
             padding-left: 34px;
             line-height: 1.5;
+            text-align: left;
         }
 
         .faq-a::before {
@@ -399,18 +433,20 @@
 
         @media (max-width: 700px) {
             .wrapper { padding: 20px 14px; border-radius: 32px; }
-            .hero-names { font-size: 2.6em; letter-spacing: 8px; }
-            .hero-image { height: 260px; }
+            .hero-names { font-size: 2.6em; letter-spacing: 6px; }
+            .hero-image { height: 280px; }
             .hero-leaf-top, .hero-leaf-bottom { font-size: 1.4em; letter-spacing: 12px; }
             .hero-date { font-size: 0.9em; padding: 6px 20px; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery-grid img { height: 140px; }
             .program-item { flex-direction: column; align-items: center; text-align: center; }
-            .program-time { min-width: auto; margin-bottom: 2px; }
+            .program-time { min-width: auto; margin-right: 0; margin-bottom: 2px; text-align: center; }
+            .program-desc { text-align: center; }
             .transport-grid { grid-template-columns: 1fr; }
             .faq-a { padding-left: 0; }
+            .faq-q { flex-wrap: wrap; }
             .section { padding: 20px 16px; }
             .invite-text { font-size: 1.05em; }
+            .inline-photo { max-height: 200px; }
+            .things-list li { display: block; margin: 4px auto; max-width: 200px; }
         }
     </style>
 </head>
@@ -418,16 +454,16 @@
 
 <div class="wrapper">
 
-    <!-- ===== ШАПКА — СКАЗОЧНЫЙ ЛЕС ===== -->
+    <!-- ===== ШАПКА ===== -->
     <header>
         <img 
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=380&fit=crop" 
+            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=400&fit=crop" 
             alt="Лесная сказка" 
             class="hero-image"
         />
         <div class="hero-overlay">
             <div class="hero-leaf-top">🌿 🍃 🌿</div>
-            <h1 class="hero-names">Катя <span>&amp;</span> Максим</h1>
+            <h1 class="hero-names">Екатерина <span class="amp">&amp;</span> Максим</h1>
             <div class="hero-line"></div>
             <div class="hero-sub">приглашают на свадьбу</div>
             <div class="hero-date">💍 25–26 июля 2026</div>
@@ -443,8 +479,6 @@
             25–26 июля 2026 года мы приглашаем вас разделить с нами самый светлый день.
             <br><br>
             <span class="highlight">🌲 Лесная уютная сказка</span>
-            <br>
-            Начало банкета: <strong>15:30</strong>
             <br><br>
             <span style="display: inline-block; background: rgba(200, 220, 185, 0.15); padding: 6px 24px; border-radius: 40px; font-size: 0.95em;">
                 🌿 Дресс-код: праздничный
@@ -452,22 +486,8 @@
         </div>
     </div>
 
-    <!-- ===== ГАЛЕРЕЯ ===== -->
-    <div class="section">
-        <h3><span class="leaf">📸</span> Наши моменты <span class="leaf">📸</span></h3>
-        <div class="divider"></div>
-        <div class="gallery-grid">
-            <img src="p1.jpeg" alt="Катя и Максим на велосипедах" />
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop" alt="Фото 2" />
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&h=300&fit=crop" alt="Фото 3" />
-            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Фото 4" />
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=300&fit=crop" alt="Фото 5" />
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0185a74?w=400&h=300&fit=crop" alt="Фото 6" />
-        </div>
-        <p style="text-align:center; margin-top:12px; font-size:0.85em; color:#7a8a72; opacity:0.7;">
-            🌿 Замените остальные фото на свои
-        </p>
-    </div>
+    <!-- ===== ФОТО 1 ===== -->
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=300&fit=crop" alt="Свадебное фото" class="inline-photo" />
 
     <!-- ===== ПРОГРАММА 1-Й ДЕНЬ ===== -->
     <div class="section">
@@ -475,7 +495,7 @@
         <div class="divider"></div>
 
         <div class="day-label">📅 25 июля — Основное торжество</div>
-        <div class="day-desc">🌿 Самый важный и трогательный день</div>
+        <div class="day-desc">🌿 Начало банкета 15:30 • Окончание 21:00</div>
 
         <div class="program-item">
             <span class="program-time">15:30</span>
@@ -499,6 +519,9 @@
         </div>
     </div>
 
+    <!-- ===== ФОТО 2 ===== -->
+    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=300&fit=crop" alt="Свадебное настроение" class="inline-photo" />
+
     <!-- ===== ПРОГРАММА 2-Й ДЕНЬ ===== -->
     <div class="section">
         <h3><span class="leaf">🍃</span> Программа второго дня <span class="leaf">🍃</span></h3>
@@ -508,22 +531,42 @@
         <div class="day-desc">🌿 Уютное неформальное завершение</div>
 
         <div class="program-item">
-            <span class="program-time">12:00</span>
-            <span class="program-desc">Сбор гостей, лёгкий фуршет</span>
+            <span class="program-time">9:00</span>
+            <span class="program-desc">Завтрак</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">10:00</span>
+            <span class="program-desc">Спортивная игра</span>
         </div>
         <div class="program-item">
             <span class="program-time">13:00</span>
-            <span class="program-desc">Прогулка и фотосессия</span>
+            <span class="program-desc">Обед</span>
         </div>
         <div class="program-item">
-            <span class="program-time">14:30</span>
-            <span class="program-desc">Обед и тёплое общение</span>
+            <span class="program-time">14:00</span>
+            <span class="program-desc">Баня</span>
         </div>
         <div class="program-item">
-            <span class="program-time">17:00</span>
-            <span class="program-desc">Финальное завершение свадьбы</span>
+            <span class="program-time">18:00</span>
+            <span class="program-desc">Ужин</span>
+        </div>
+
+        <div style="margin-top: 16px; border-top: 1px solid rgba(160, 190, 140, 0.15); padding-top: 14px;">
+            <p style="font-size: 0.9em; color: #5a7050; font-weight: bold; margin-bottom: 4px;">Что взять с собой:</p>
+            <ul class="things-list">
+                <li>👙 Купальник для бани</li>
+                <li>🏃 Спортивная одежда для игры</li>
+                <li>👕 Удобная одежда на день</li>
+                <li>🧴 Полотенце</li>
+            </ul>
+            <p style="font-size: 0.85em; color: #7a8a72; margin-top: 8px; opacity: 0.8;">
+                или просто что-то удобное и комфортное 🌿
+            </p>
         </div>
     </div>
+
+    <!-- ===== ФОТО 3 ===== -->
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=300&fit=crop" alt="Лесная сказка" class="inline-photo" />
 
     <!-- ===== МЕСТО ПРОВЕДЕНИЯ ===== -->
     <div class="section">
@@ -541,21 +584,19 @@
         <div class="transport-grid">
             <div class="transport-item">
                 <span class="icon">🚗</span>
-                <div class="label">На машине</div>
-                <div class="desc">Есть парковка</div>
+                <div class="label">На личном авто</div>
+                <div class="desc">Есть бесплатная парковка на территории</div>
             </div>
             <div class="transport-item">
-                <span class="icon">🚕</span>
-                <div class="label">Такси</div>
-                <div class="desc">Лучше заказать заранее</div>
-            </div>
-            <div class="transport-item">
-                <span class="icon">🚌</span>
-                <div class="label">Маршрутка</div>
-                <div class="desc">Остановка недалеко</div>
+                <span class="icon">🚐</span>
+                <div class="label">На трансфере</div>
+                <div class="desc">Трансфер будет ждать в 14:30 на остановке <strong>«52-я школа»</strong></div>
             </div>
         </div>
     </div>
+
+    <!-- ===== ФОТО 4 ===== -->
+    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=300&fit=crop" alt="Свадебный лес" class="inline-photo" />
 
     <!-- ===== FAQ ===== -->
     <div class="section">
@@ -563,34 +604,34 @@
         <div class="divider"></div>
 
         <div class="faq-item">
-            <div class="faq-q"><span class="icon">🌿</span> До какого числа подтвердить?</div>
-            <div class="faq-a">Пожалуйста, сообщите нам до 1 июля 2026.</div>
+            <div class="faq-q"><span class="icon">🌿</span> До какого числа подтвердить присутствие?</div>
+            <div class="faq-a">Пожалуйста, сообщите нам до 1 июля 2026 — это очень поможет в подготовке.</div>
         </div>
 
         <div class="faq-item">
             <div class="faq-q"><span class="icon">👗</span> Какой дресс-код?</div>
-            <div class="faq-a">Праздничный. Светлые платья, костюмы — главное, чтобы вам было комфортно и красиво.</div>
+            <div class="faq-a">Праздничный. Девушкам — светлые нарядные платья, мужчинам — костюмы. Главное, чтобы вам было комфортно и красиво ✨</div>
         </div>
 
         <div class="faq-item">
             <div class="faq-q"><span class="icon">🎁</span> Что дарить? Можно ли цветы?</div>
-            <div class="faq-a">Мы будем очень благодарны за денежный подарок — мы копим на свадебное путешествие. Цветы, пожалуйста, не дарите: мы не сможем забрать их с собой, и нам будет жаль ❤️</div>
+            <div class="faq-a">Спасибо, что думаете о нас! Мы будем очень благодарны за денежный подарок — мы копим на свадебное путешествие, о котором давно мечтаем. А цветы, пожалуйста, не дарите — мы не сможем забрать их с собой, и нам будет жаль, если они завянут ❤️</div>
         </div>
 
         <div class="faq-item">
             <div class="faq-q"><span class="icon">👶</span> Можно ли с детьми?</div>
-            <div class="faq-a">Да, мы будем рады всей семье! Для детей будет отдельное пространство.</div>
+            <div class="faq-a">Да, мы будем рады всей семье! Для детей будет отдельное пространство и аниматор.</div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-q"><span class="icon">🚕</span> Будет ли трансфер?</div>
-            <div class="faq-a">Трансфер не организован, но до места легко добраться на такси или личном авто.</div>
+            <div class="faq-q"><span class="icon">🚐</span> Будет ли трансфер?</div>
+            <div class="faq-a">Да! Трансфер будет ждать гостей в 14:30 на остановке <strong>«52-я школа»</strong>. Если вы на машине — на территории есть бесплатная парковка.</div>
         </div>
     </div>
 
     <footer>
         <div class="leafs">🌿 🍃 🌲 🍃 🌿</div>
-        С любовью, Катя и Максим ❤️
+        С любовью, Екатерина и Максим ❤️
     </footer>
 
 </div>
