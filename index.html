@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Свадьба Кати и Максима</title>
     <style>
         * {
@@ -12,110 +12,201 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: #f6f2ec;
-            color: #3d3d3d;
-            max-width: 900px;
-            margin: 0 auto;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f2ede7;
+            color: #2d3a2a;
             padding: 20px;
-            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* ===== ШАПКА с лесным акцентом ===== */
-        header {
-            background: linear-gradient(135deg, #e8f0e6, #d6e2d3);
-            padding: 50px 20px 35px;
-            border-radius: 30px;
-            margin-bottom: 30px;
-            border: 1px solid #c5d6bf;
+        .wrapper {
+            max-width: 880px;
+            width: 100%;
+            background: rgba(255, 252, 248, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 56px 56px 40px 40px;
+            padding: 30px 25px 20px;
+            box-shadow: 0 20px 60px rgba(60, 80, 50, 0.15);
+            border: 1px solid rgba(180, 200, 160, 0.3);
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
-            content: "🌿";
-            font-size: 6em;
+        .wrapper::before {
+            content: "🌲🌳🌲🌳🌲";
             position: absolute;
-            left: -10px;
-            top: -20px;
-            opacity: 0.1;
-            transform: rotate(-15deg);
+            top: -10px;
+            left: 0;
+            right: 0;
+            font-size: 6em;
+            letter-spacing: 30px;
+            color: rgba(80, 110, 70, 0.06);
+            white-space: nowrap;
+            pointer-events: none;
+            transform: rotate(-2deg);
+            z-index: 0;
         }
 
-        header::after {
-            content: "🌲";
-            font-size: 5em;
+        .wrapper::after {
+            content: "🍃🌿🍃🌿🍃";
             position: absolute;
+            bottom: 10px;
             right: -10px;
-            bottom: -20px;
-            opacity: 0.08;
-            transform: rotate(10deg);
+            font-size: 4em;
+            color: rgba(100, 130, 80, 0.05);
+            pointer-events: none;
+            transform: rotate(5deg);
+            z-index: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 10px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leaf-frame {
+            font-size: 2.2em;
+            letter-spacing: 12px;
+            color: #5a7a4a;
+            opacity: 0.4;
         }
 
         header h1 {
-            font-size: 3em;
-            color: #3a5a3a;
-            letter-spacing: 3px;
-            position: relative;
-            z-index: 1;
+            font-size: 3.4em;
+            font-weight: normal;
+            color: #2a452a;
+            letter-spacing: 6px;
+            margin: 6px 0 2px;
+            font-family: 'Georgia', serif;
+            text-shadow: 0 2px 12px rgba(60, 90, 50, 0.08);
         }
 
-        header h2 {
-            font-size: 1.2em;
-            font-weight: normal;
-            color: #5a7a5a;
-            margin-top: 5px;
-            position: relative;
-            z-index: 1;
+        header h1 span {
+            font-size: 0.85em;
+            color: #4a6a3a;
+        }
+
+        header .sub {
+            font-size: 1.15em;
+            color: #5a7050;
             font-style: italic;
+            letter-spacing: 2px;
+            border-top: 1px solid rgba(140, 170, 120, 0.2);
+            border-bottom: 1px solid rgba(140, 170, 120, 0.2);
+            display: inline-block;
+            padding: 6px 24px;
+            margin-top: 6px;
         }
 
         .date-badge {
             display: inline-block;
-            margin-top: 12px;
-            padding: 8px 35px;
-            background: rgba(255,255,255,0.75);
-            border-radius: 40px;
-            font-size: 1.1em;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            color: #3a5a3a;
-            border: 1px solid #bdd0b5;
-            position: relative;
-            z-index: 1;
+            margin-top: 14px;
+            padding: 10px 38px;
+            background: rgba(240, 248, 235, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 60px;
+            font-size: 1.2em;
+            color: #2a452a;
+            border: 1px solid rgba(130, 170, 110, 0.25);
+            box-shadow: 0 4px 20px rgba(80, 120, 60, 0.06);
+            letter-spacing: 1px;
         }
 
-        /* ===== ОСНОВНЫЕ БЛОКИ ===== */
         .section {
-            background: white;
-            padding: 30px 25px;
-            margin-bottom: 25px;
-            border-radius: 20px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.04);
-            text-align: left;
-            border-left: 4px solid #bdd0b5;
+            background: rgba(255, 252, 248, 0.6);
+            backdrop-filter: blur(2px);
+            padding: 28px 24px;
+            margin: 22px 0;
+            border-radius: 32px;
+            border: 1px solid rgba(180, 200, 165, 0.2);
+            box-shadow: 0 6px 30px rgba(60, 80, 50, 0.04);
+            position: relative;
+            z-index: 1;
+            transition: 0.2s;
         }
 
         .section h3 {
-            font-size: 1.8em;
+            font-size: 1.9em;
             font-weight: normal;
-            color: #3a5a3a;
+            color: #2a452a;
             text-align: center;
-            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .section h3 .leaf {
+            font-size: 0.7em;
+            opacity: 0.4;
+            display: inline-block;
+            margin: 0 6px;
         }
 
         .divider {
-            width: 60px;
+            width: 70px;
             height: 2px;
-            background: #bdd0b5;
+            background: linear-gradient(90deg, transparent, #8aaa7a, transparent);
             margin: 8px auto 20px;
         }
 
-        /* ===== ПРОГРАММА ===== */
+        .divider::after {
+            content: "🌿";
+            display: block;
+            font-size: 0.9em;
+            margin-top: -10px;
+            opacity: 0.25;
+        }
+
+        .invite-text {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #2d3a2a;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .invite-text strong {
+            color: #2a452a;
+        }
+
+        .invite-text .highlight {
+            display: inline-block;
+            background: rgba(200, 220, 185, 0.2);
+            padding: 2px 16px;
+            border-radius: 30px;
+            font-style: italic;
+            border: 1px solid rgba(160, 190, 140, 0.15);
+        }
+
+        .day-label {
+            background: rgba(200, 220, 185, 0.2);
+            padding: 4px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: #2a452a;
+            display: inline-block;
+            margin: 12px 0 4px;
+            font-size: 0.95em;
+            border: 1px solid rgba(160, 190, 140, 0.1);
+        }
+
+        .day-desc {
+            font-size: 0.95em;
+            color: #5a7050;
+            font-style: italic;
+            margin: 2px 0 10px;
+            opacity: 0.8;
+        }
+
         .program-item {
             display: flex;
             align-items: baseline;
-            padding: 12px 0;
-            border-bottom: 1px dashed #e6ede3;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(160, 190, 140, 0.2);
         }
 
         .program-item:last-child {
@@ -124,84 +215,87 @@
 
         .program-time {
             font-weight: bold;
-            color: #3a5a3a;
+            color: #2a452a;
             min-width: 100px;
             font-size: 1.05em;
         }
 
         .program-desc {
-            color: #4d4d4d;
+            color: #3d4d3a;
             font-size: 1.05em;
         }
 
-        .day-label {
-            background: #e8f0e6;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            color: #3a5a3a;
-            display: inline-block;
-            margin: 10px 0 5px;
-            font-size: 0.95em;
-        }
-
-        /* ===== КАК ДОБРАТЬСЯ ===== */
         .place-info {
-            background: #f5f8f3;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 10px;
+            background: rgba(240, 248, 235, 0.3);
+            border-radius: 24px;
+            padding: 28px 20px;
             text-align: center;
-            border: 1px solid #dde8d8;
+            border: 1px dashed rgba(130, 170, 110, 0.2);
         }
 
-        .place-info p {
-            font-size: 1.1em;
-            margin-bottom: 8px;
+        .place-info .big-icon {
+            font-size: 2.6em;
+            opacity: 0.3;
+            display: block;
+            margin-bottom: 6px;
         }
 
         .place-info .address {
             font-size: 1.2em;
-            color: #3a5a3a;
+            color: #2a452a;
             font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .place-info .hint {
+            font-size: 1em;
+            color: #5a7050;
+            margin-top: 6px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .place-info .hint strong {
+            color: #2a452a;
+            font-style: normal;
         }
 
         .transport-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 14px;
+            margin-top: 18px;
         }
 
         .transport-item {
-            background: white;
-            padding: 15px 10px;
-            border-radius: 12px;
-            border: 1px solid #dde8d8;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(2px);
+            padding: 16px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(180, 200, 165, 0.15);
             text-align: center;
         }
 
         .transport-item .icon {
             font-size: 1.8em;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .transport-item .label {
             font-weight: bold;
             font-size: 0.95em;
-            color: #3a5a3a;
+            color: #2a452a;
         }
 
         .transport-item .desc {
             font-size: 0.9em;
-            color: #6e7a6a;
+            color: #5a7050;
         }
 
-        /* ===== ВОПРОСЫ-ОТВЕТЫ ===== */
         .faq-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #e6ede3;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(180, 200, 165, 0.12);
         }
 
         .faq-item:last-child {
@@ -210,93 +304,100 @@
 
         .faq-q {
             font-weight: bold;
-            color: #3a5a3a;
+            color: #2a452a;
             font-size: 1.05em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        .faq-q::before {
-            content: "🌿";
+        .faq-q .icon {
             font-size: 1.1em;
+            opacity: 0.5;
         }
 
         .faq-a {
-            color: #4d4d4d;
+            color: #3d4d3a;
             margin-top: 4px;
-            padding-left: 30px;
+            padding-left: 34px;
+            line-height: 1.5;
         }
 
         .faq-a::before {
-            content: "→ ";
-            color: #8aaa80;
-            font-weight: bold;
+            content: "— ";
+            color: #8aaa7a;
         }
 
         footer {
             margin-top: 30px;
-            padding: 25px;
-            color: #8aaa80;
+            padding: 20px 10px 6px;
+            text-align: center;
+            color: #6a7a62;
             font-size: 0.95em;
-            border-top: 1px solid #dde8d8;
+            border-top: 1px solid rgba(180, 200, 165, 0.12);
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1px;
         }
 
-        .leaf-icon {
-            display: inline-block;
-            font-size: 1.2em;
-            margin: 0 5px;
+        footer .leafs {
+            font-size: 1.1em;
+            letter-spacing: 8px;
+            opacity: 0.3;
         }
 
         @media (max-width: 700px) {
-            header h1 { font-size: 2.2em; }
+            .wrapper { padding: 20px 14px; border-radius: 32px; }
+            header h1 { font-size: 2.4em; letter-spacing: 3px; }
             .program-item { flex-direction: column; align-items: center; text-align: center; }
             .program-time { min-width: auto; margin-bottom: 2px; }
             .transport-grid { grid-template-columns: 1fr; }
             .faq-a { padding-left: 0; }
+            .date-badge { font-size: 1em; padding: 8px 24px; }
+            .section { padding: 20px 16px; }
+            .invite-text { font-size: 1.05em; }
         }
     </style>
 </head>
 <body>
 
+<div class="wrapper">
+
     <header>
-        <h1>Катя &amp; Максим</h1>
-        <h2>🌲 Приглашаем в лесную сказку 🌲</h2>
-        <div class="date-badge">💍 25 июля 2026</div>
+        <div class="leaf-frame">🌿 🍃 🌿</div>
+        <h1>Катя <span>&amp;</span> Максим</h1>
+        <div class="sub">приглашают на свадьбу</div>
+        <div class="date-badge">💍 25–26 июля 2026</div>
     </header>
 
     <!-- ===== ПРИГЛАШЕНИЕ ===== -->
     <div class="section">
-        <h3>Дорогие гости!</h3>
+        <h3><span class="leaf">🌿</span> Дорогие гости <span class="leaf">🌿</span></h3>
         <div class="divider"></div>
-        <p style="font-size: 1.15em; line-height: 1.8; color: #3d3d3d; text-align: center; max-width: 700px; margin: 0 auto;">
-            <span class="leaf-icon">🌿</span>
-            25 июля 2026 года Максим и Екатерина приглашают вас на свою свадьбу 
-            в усадьбе <strong>«tbd»</strong> (tbd).
+        <div class="invite-text">
+            25–26 июля 2026 года мы приглашаем вас разделить с нами самый светлый день.
             <br><br>
+            <span class="highlight">🌲 Лесная уютная сказка</span>
+            <br>
             Начало банкета: <strong>15:30</strong>
             <br><br>
-            <span style="display: inline-block; background: #e8f0e6; padding: 10px 25px; border-radius: 40px; font-size: 0.9em;">
+            <span style="display: inline-block; background: rgba(200, 220, 185, 0.15); padding: 6px 24px; border-radius: 40px; font-size: 0.95em;">
                 🌿 Дресс-код: праздничный
             </span>
-            <br><br>
-            <span style="color: #5a7a5a; font-style: italic;">
-                «Свадьба в стиле лесной уютной сказки — солнечный летний лес»
-            </span>
-            <span class="leaf-icon">🌿</span>
-        </p>
+        </div>
     </div>
 
-    <!-- ===== ПРОГРАММА ===== -->
+    <!-- ===== ПРОГРАММА 1-Й ДЕНЬ ===== -->
     <div class="section">
-        <h3>Программа дня</h3>
+        <h3><span class="leaf">🌲</span> Программа первого дня <span class="leaf">🌲</span></h3>
         <div class="divider"></div>
 
-        <div class="day-label">🌲 25 июля 2026</div>
+        <div class="day-label">📅 25 июля — Основное торжество</div>
+        <div class="day-desc">🌿 Самый важный и трогательный день</div>
 
         <div class="program-item">
             <span class="program-time">15:30</span>
-            <span class="program-desc">Начало банкета, встреча гостей</span>
+            <span class="program-desc">Встреча гостей, welcome-фуршет</span>
         </div>
         <div class="program-item">
             <span class="program-time">16:00</span>
@@ -304,7 +405,7 @@
         </div>
         <div class="program-item">
             <span class="program-time">17:00</span>
-            <span class="program-desc">Праздничный ужин и развлекательная программа</span>
+            <span class="program-desc">Банкет, музыка, танцы</span>
         </div>
         <div class="program-item">
             <span class="program-time">19:00</span>
@@ -312,28 +413,54 @@
         </div>
         <div class="program-item">
             <span class="program-time">21:00</span>
-            <span class="program-desc">Завершение вечера, прощание с гостями</span>
+            <span class="program-desc">Завершение первого дня</span>
         </div>
     </div>
 
-    <!-- ===== КАК ДОБРАТЬСЯ ===== -->
+    <!-- ===== ПРОГРАММА 2-Й ДЕНЬ ===== -->
     <div class="section">
-        <h3>Как добраться</h3>
+        <h3><span class="leaf">🍃</span> Программа второго дня <span class="leaf">🍃</span></h3>
+        <div class="divider"></div>
+
+        <div class="day-label">📅 26 июля — Продолжение праздника</div>
+        <div class="day-desc">🌿 Уютное неформальное завершение</div>
+
+        <div class="program-item">
+            <span class="program-time">12:00</span>
+            <span class="program-desc">Сбор гостей, лёгкий фуршет</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">13:00</span>
+            <span class="program-desc">Прогулка и фотосессия</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">14:30</span>
+            <span class="program-desc">Обед и тёплое общение</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">17:00</span>
+            <span class="program-desc">Финальное завершение свадьбы</span>
+        </div>
+    </div>
+
+    <!-- ===== МЕСТО ПРОВЕДЕНИЯ (скрыто) ===== -->
+    <div class="section">
+        <h3><span class="leaf">🌲</span> Как добраться <span class="leaf">🌲</span></h3>
         <div class="divider"></div>
 
         <div class="place-info">
-            <p class="address">🌲 Усадьба tbd </p>
-            <p> tbd </p>
-            <p style="font-size:0.9em; color:#6e7a6a; margin-top:5px;">
-                <a href="#" style="color:#6e8a6a; text-decoration:underline;">Открыть карту</a>
-            </p>
+            <span class="big-icon">🏡</span>
+            <div class="address">📍 Живописная усадьба</div>
+            <div class="hint">
+                🌿 Точный адрес указан в <strong>приглашении</strong>
+            </div>
         </div>
 
         <div class="transport-grid">
             <div class="transport-item">
                 <span class="icon">🚗</span>
                 <div class="label">На машине</div>
-                <div class="desc">Есть парковка для гостей</div>
+                <div class="desc">Есть парковка</div>
             </div>
             <div class="transport-item">
                 <span class="icon">🚕</span>
@@ -343,46 +470,47 @@
             <div class="transport-item">
                 <span class="icon">🚌</span>
                 <div class="label">Маршрутка</div>
-                <div class="desc">От остановки 10 мин пешком</div>
+                <div class="desc">Остановка недалеко</div>
             </div>
         </div>
     </div>
 
-    <!-- ===== ВОПРОСЫ-ОТВЕТЫ ===== -->
+    <!-- ===== FAQ ===== -->
     <div class="section">
-        <h3>Частые вопросы</h3>
+        <h3><span class="leaf">🍃</span> Частые вопросы <span class="leaf">🍃</span></h3>
         <div class="divider"></div>
 
         <div class="faq-item">
-            <div class="faq-q">До какого числа нужно подтвердить присутствие?</div>
-            <div class="faq-a">Пожалуйста, сообщите нам до 1 июля 2026 — это очень поможет в подготовке.</div>
+            <div class="faq-q"><span class="icon">🌿</span> До какого числа подтвердить?</div>
+            <div class="faq-a">Пожалуйста, сообщите нам до 1 июля 2026.</div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-q">Какой дресс-код?</div>
-            <div class="faq-a">Праздничный стиль</div>
+            <div class="faq-q"><span class="icon">👗</span> Какой дресс-код?</div>
+            <div class="faq-a">Праздничный. Светлые платья, костюмы — главное, чтобы вам было комфортно и красиво.</div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-q">Что дарить? Можно ли цветы?</div>
-            <div class="faq-a">Спасибо, что думаете о нас! Мы будем очень благодарны за денежный подарок — мы копим на свадебное путешествие, о котором давно мечтаем. А цветы, пожалуйста, не дарите — мы не сможем забрать их с собой, и нам будет жаль, если они завянут ❤️</div>
+            <div class="faq-q"><span class="icon">🎁</span> Что дарить? Можно ли цветы?</div>
+            <div class="faq-a">Мы будем очень благодарны за денежный подарок — мы копим на свадебное путешествие. Цветы, пожалуйста, не дарите: мы не сможем забрать их с собой, и нам будет жаль ❤️</div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-q">Можно ли с детьми?</div>
-            <div class="faq-a">Да, мы будем рады видеть всю семью! Детям будет комфортно, и для них предусмотрено отдельное пространство.</div>
+            <div class="faq-q"><span class="icon">👶</span> Можно ли с детьми?</div>
+            <div class="faq-a">Да, мы будем рады всей семье! Для детей будет отдельное пространство.</div>
         </div>
 
         <div class="faq-item">
-            <div class="faq-q">Будет ли трансфер для гостей?</div>
-            <div class="faq-a">К сожалению, мы не организуем трансфер, но до усадьбы легко добраться на такси или личном автомобиле.</div>
+            <div class="faq-q"><span class="icon">🚕</span> Будет ли трансфер?</div>
+            <div class="faq-a">Трансфер не организован, но до места легко добраться на такси или личном авто.</div>
         </div>
     </div>
 
-    <!-- ===== ПОДВАЛ ===== -->
     <footer>
-        🌿 С любовью, Катя и Максим 🌿
+        <div class="leafs">🌿 🍃 🌲 🍃 🌿</div>
+        С любовью, Катя и Максим ❤️
     </footer>
 
+</div>
 </body>
 </html>
