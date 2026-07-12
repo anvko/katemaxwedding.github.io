@@ -35,22 +35,7 @@
             overflow: hidden;
         }
 
-        .wrapper::before {
-            content: "🌲🌳🌲🌳🌲";
-            position: absolute;
-            top: -10px;
-            left: 0;
-            right: 0;
-            font-size: 6em;
-            letter-spacing: 30px;
-            color: rgba(80, 110, 70, 0.05);
-            white-space: nowrap;
-            pointer-events: none;
-            transform: rotate(-2deg);
-            z-index: 0;
-        }
-
-        /* ===== ШАПКА — БЕЗ ЗАТЕМНЕНИЯ ===== */
+        /* ===== ШАПКА ===== */
         header {
             position: relative;
             z-index: 1;
@@ -66,7 +51,6 @@
             object-fit: cover;
             object-position: center;
             display: block;
-            /* УБРАЛИ затемнение */
             transition: 0.4s;
         }
 
@@ -80,57 +64,45 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 30px;
+            padding: 20px 30px;
             background: linear-gradient(135deg, rgba(30, 50, 30, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
             backdrop-filter: blur(1px);
+            text-align: center;
         }
 
-        .hero-leaf-top {
-            font-size: 2.2em;
-            letter-spacing: 20px;
-            color: rgba(255, 255, 255, 0.12);
-            margin-bottom: 6px;
-            font-weight: normal;
-        }
-
-        .hero-leaf-bottom {
-            font-size: 2em;
-            letter-spacing: 18px;
-            color: rgba(255, 255, 255, 0.1);
-            margin-top: 8px;
-            font-weight: normal;
-        }
-
+        /* Убрали деревья — оставили только текст */
         .hero-names {
             font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 4.6em;
+            font-size: 4.2em;
             font-weight: normal;
-            letter-spacing: 12px;
+            letter-spacing: 10px;
             color: #fff;
             text-shadow: 0 4px 60px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.2);
             margin: 0;
             line-height: 1.15;
             font-style: italic;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .hero-names .amp {
             font-size: 0.6em;
             color: #e8f0e0;
-            letter-spacing: 8px;
+            letter-spacing: 6px;
             font-style: normal;
         }
 
         .hero-line {
-            width: 140px;
+            width: 120px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-            margin: 8px auto;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            margin: 6px auto;
         }
 
         .hero-sub {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-style: italic;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             color: #f0f7ea;
             text-shadow: 0 2px 25px rgba(0, 0, 0, 0.4);
             margin-top: 2px;
@@ -138,12 +110,12 @@
         }
 
         .hero-date {
-            margin-top: 14px;
-            padding: 8px 38px;
+            margin-top: 10px;
+            padding: 6px 28px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
             border-radius: 60px;
-            font-size: 1.05em;
+            font-size: 0.95em;
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.08);
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
@@ -357,7 +329,6 @@
             color: #5a7050;
         }
 
-        /* ===== ФОТО МЕЖДУ БЛОКАМИ ===== */
         .inline-photo {
             width: 100%;
             height: 300px;
@@ -370,7 +341,6 @@
             box-shadow: 0 4px 20px rgba(60, 80, 50, 0.06);
         }
 
-        /* ФОТО 1, 3, 4 — сдвигаем вниз, чтобы головы не обрезались */
         .inline-photo.special {
             object-position: center 25%;
         }
@@ -435,10 +405,11 @@
 
         @media (max-width: 700px) {
             .wrapper { padding: 20px 14px; border-radius: 32px; }
-            .hero-names { font-size: 2.6em; letter-spacing: 6px; }
+            .hero-names { font-size: 2.4em; letter-spacing: 4px; }
             .hero-image { height: 280px; }
-            .hero-leaf-top, .hero-leaf-bottom { font-size: 1.4em; letter-spacing: 12px; }
-            .hero-date { font-size: 0.9em; padding: 6px 20px; }
+            .hero-date { font-size: 0.85em; padding: 5px 16px; }
+            .hero-sub { font-size: 0.95em; letter-spacing: 3px; }
+            .hero-line { width: 80px; }
             .inline-photo { height: 200px; }
             .program-item { flex-direction: column; align-items: center; text-align: center; }
             .program-time { min-width: auto; margin-right: 0; margin-bottom: 2px; text-align: center; }
@@ -450,13 +421,20 @@
             .invite-text { font-size: 1.05em; }
             .things-list li { display: block; margin: 4px auto; max-width: 200px; }
         }
+
+        @media (max-width: 480px) {
+            .hero-names { font-size: 1.8em; letter-spacing: 2px; }
+            .hero-image { height: 220px; }
+            .hero-date { font-size: 0.75em; padding: 4px 12px; }
+            .hero-sub { font-size: 0.8em; letter-spacing: 2px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
 
-    <!-- ===== ШАПКА (БЕЗ ЗАТЕМНЕНИЯ) ===== -->
+    <!-- ===== ШАПКА ===== -->
     <header>
         <img 
             src="wedding_main.jpeg" 
@@ -464,12 +442,10 @@
             class="hero-image"
         />
         <div class="hero-overlay">
-            <div class="hero-leaf-top">🌿 🍃 🌿</div>
             <h1 class="hero-names">Максим <span class="amp">&amp;</span> Екатерина</h1>
             <div class="hero-line"></div>
             <div class="hero-sub">приглашают на свадьбу</div>
             <div class="hero-date">💍 25–26 июля 2026</div>
-            <div class="hero-leaf-bottom">🌿 🍃 🌿</div>
         </div>
     </header>
 
@@ -488,23 +464,28 @@
         </div>
     </div>
 
-    <!-- ===== ФОТО 1 (специальное) ===== -->
+    <!-- ===== ФОТО 1 ===== -->
     <img src="photo_1.jpeg" alt="Свадебное фото" class="inline-photo special" />
 
-    <!-- ===== ПРОГРАММА 1-Й ДЕНЬ ===== -->
+    <!-- ===== ПРОГРАММА 1-Й ДЕНЬ (только начало и окончание) ===== -->
     <div class="section">
         <h3><span class="leaf">🌲</span> Программа первого дня <span class="leaf">🌲</span></h3>
         <div class="divider"></div>
         <div class="day-label">📅 25 июля — Основное торжество</div>
         <div class="day-desc">🌿 Начало банкета 15:30 • Окончание 21:00</div>
-        <div class="program-item"><span class="program-time">15:30</span><span class="program-desc">Встреча гостей, welcome-фуршет</span></div>
-        <div class="program-item"><span class="program-time">16:00</span><span class="program-desc">Торжественная церемония</span></div>
-        <div class="program-item"><span class="program-time">17:00</span><span class="program-desc">Банкет, музыка, танцы</span></div>
-        <div class="program-item"><span class="program-time">19:00</span><span class="program-desc">Торт и поздравления</span></div>
-        <div class="program-item"><span class="program-time">21:00</span><span class="program-desc">Завершение первого дня</span></div>
+
+        <!-- Оставили только два пункта: начало и окончание -->
+        <div class="program-item">
+            <span class="program-time">15:30</span>
+            <span class="program-desc">Начало банкета</span>
+        </div>
+        <div class="program-item">
+            <span class="program-time">21:00</span>
+            <span class="program-desc">Окончание банкета</span>
+        </div>
     </div>
 
-    <!-- ===== ФОТО 2 (обычное) ===== -->
+    <!-- ===== ФОТО 2 ===== -->
     <img src="photo_2.jpeg" alt="Свадебное настроение" class="inline-photo" />
 
     <!-- ===== ПРОГРАММА 2-Й ДЕНЬ ===== -->
@@ -530,7 +511,7 @@
         </div>
     </div>
 
-    <!-- ===== ФОТО 3 (специальное) ===== -->
+    <!-- ===== ФОТО 3 ===== -->
     <img src="photo_3.jpeg" alt="Лесная сказка" class="inline-photo special" />
 
     <!-- ===== МЕСТО ПРОВЕДЕНИЯ ===== -->
@@ -556,7 +537,7 @@
         </div>
     </div>
 
-    <!-- ===== ФОТО 4 (специальное) ===== -->
+    <!-- ===== ФОТО 4 ===== -->
     <img src="photo_4.jpeg" alt="Свадебный лес" class="inline-photo special" />
 
     <!-- ===== FAQ ===== -->
